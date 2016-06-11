@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# 
+# Syntax:md2html <file.md> <file.html>
+#
+# Konverterer Markdown til html
+#
+# Krever pango
+#
+# base-css må installeres i $HOME/.md2html/base.css
+#
+# Tema fra https://stackedit.io/res-min/themes/blue.css
+# 
+# Copyright (C) 2016 janck <janck76@gmail.com>
+#
+# Distributed under terms of the MIT license.
+#
+
+
+input=$1
+output=$2
+
+function echoerr() { echo "$@" 1>&2; }
+function syntax() { 
+    echoerr 'Syntax: md2html <file.md> <file.html>' 
+    echoerr
+}
+
+[[ ! -f $input ]] && syntax && exit
+[[ -z $output ]] && syntax && exit
+
+pandoc $input -f markdown -c file:///$HOME/.md2html//blue.css -c file:///$HOME/.md2html/main.css -t html -s -o $output
