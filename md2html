@@ -4,7 +4,7 @@
 #
 # Konverterer Markdown til html
 #
-# Krever pango
+# Krever pandoc
 #
 # base-css må installeres i $HOME/.md2html/base.css
 #
