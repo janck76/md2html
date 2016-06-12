@@ -28,4 +28,4 @@ function syntax() {
 [[ ! -f $input ]] && syntax && exit
 [[ -z $output ]] && syntax && exit
 
-pandoc $input -f markdown -c file:///$HOME/.md2html//blue.css -c file:///$HOME/.md2html/main.css -t html -s -o $output
+pandoc "$input" -f markdown -c file:///$HOME/.md2html//blue.css -c file:///$HOME/.md2html/main.css -t html -s -o "$output"
